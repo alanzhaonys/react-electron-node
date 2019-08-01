@@ -1,15 +1,15 @@
 {
-  "name": "react-electron-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "react-electron-node",
+  "version": "1.0.0",
+  "private": false,
   "author": {
     "name": "Alan Zhao",
     "email": "your.email@domain.com",
     "url": "https://your-website.com"
   },
   "build": {
-    "appId": "com.my-website.my-electron-app",
-    "productName": "ReactElectronApp",
+    "appId": "com.my-website.react-electron-node",
+    "productName": "ReactElectronNode",
     "copyright": "Copyright © 2019 ${author}",
     "mac": {
       "category": "public.app-category.utilities"
