@@ -1,8 +1,10 @@
 Tutorials:
+
 Electron and React
 - https://www.codementor.io/randyfindley/how-to-build-an-electron-app-using-create-react-app-and-electron-builder-ss1k0sfer
 - https://www.freecodecamp.org/news/building-an-electron-application-with-create-react-app-97945861647c/
-Customize create-react-app
+
+Customize create-react-app:
 - https://auth0.com/blog/how-to-configure-create-react-app/
 
 How to use this project?
