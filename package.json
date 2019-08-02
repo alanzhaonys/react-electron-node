@@ -2,6 +2,7 @@
   "name": "react-electron-node",
   "version": "1.0.0",
   "private": false,
+  "license": "MIT",
   "author": {
     "name": "Alan Zhao",
     "email": "your.email@domain.com",
