@@ -14,10 +14,10 @@ export class Home extends Page {
 
     try {
       this.relays = [
-        new Gpio(17, 'out'),
-        new Gpio(18, 'out'),
-        new Gpio(19, 'out'),
-        new Gpio(20, 'out')
+        new Gpio(14, 'out'),
+        //new Gpio(18, 'out'),
+        //new Gpio(19, 'out'),
+        //new Gpio(20, 'out')
       ];
     } catch (error) {
       console.log(error);
@@ -43,25 +43,31 @@ export class Home extends Page {
   handleInputChange(event) {
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
+    const switchName = target.name;
 
-    console.log(name + ': ' + value);
-    var relayNumber = name.match(/\d+/)[0];
-    this.driveRelay(relayNumber, value);
-
-    this.setState({
-      [name]: value
-    });
+    var relayNumber = switchName.match(/\d+/)[0];
+    this.driveRelay(relayNumber - 1, value, switchName);
   }
 
-  driveRelay(relayNumber, value) {
+  driveRelay(relayNumber, value, switchName) {
     try {
       var relay = this.relays[relayNumber];
+      if (!relay) {
+        return false;
+      }
+
       if (relay.readSync() === 0 && value === true) {
         relay.writeSync(1);
       } else {
         relay.writeSync(0);
       }
+
+      console.log(switchName + ': ' + value);
+
+      this.setState({
+        [switchName]: value
+      });
+
     } catch (error) {
       console.log(error);
     }
