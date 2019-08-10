@@ -12,12 +12,16 @@ export class Home extends Page {
   constructor(props) {
     super(props);
 
+    this.HIGH = 1;
+    this.LOW = 0;
+
+    // run `raspi-gpio get` to get initial gpio state
     try {
       this.relays = [
-        new Gpio(14, 'out'),
-        //new Gpio(18, 'out'),
-        //new Gpio(19, 'out'),
-        //new Gpio(20, 'out')
+        new Gpio(2, 'high'),
+        new Gpio(3, 'high'),
+        new Gpio(4, 'high'),
+        new Gpio(5, 'high')
       ];
     } catch (error) {
       console.log(error);
@@ -35,8 +39,7 @@ export class Home extends Page {
 
   componentWillUnmount() {
     this.relays.forEach(relay => {
-      // Free up resource
-      relay.unexport();
+      relay.writeSync(this.HIGH);
     });
   }
 
@@ -56,10 +59,12 @@ export class Home extends Page {
         return false;
       }
 
-      if (relay.readSync() === 0 && value === true) {
-        relay.writeSync(1);
+      if (relay.readSync() === this.HIGH && value === true) {
+	// Turn it on
+        relay.writeSync(this.LOW);
       } else {
-        relay.writeSync(0);
+	// Turn it off
+        relay.writeSync(this.HIGH);
       }
 
       console.log(switchName + ': ' + value);
