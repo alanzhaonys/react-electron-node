@@ -6,26 +6,13 @@ import Col from 'react-bootstrap/Col'
 
 import { Page } from './base/Page';
 
-const Gpio = require('onoff').Gpio;
-
 export class Home extends Page {
   constructor(props) {
     super(props);
 
-    this.HIGH = 1;
-    this.LOW = 0;
-
-    // run `raspi-gpio get` to get initial gpio state
-    try {
-      this.relays = [
-        new Gpio(2, 'high'),
-        new Gpio(3, 'high'),
-        new Gpio(4, 'high'),
-        new Gpio(5, 'high')
-      ];
-    } catch (error) {
-      console.log(error);
-    }
+    this.mqtt = require('mqtt');
+    this.brokerServer = '192.168.0.154:2000';
+    this.client = null;
 
     this.state = {
       switch1: false,
@@ -37,10 +24,15 @@ export class Home extends Page {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  componentWillUnmount() {
-    this.relays.forEach(relay => {
-      relay.writeSync(this.HIGH);
+  componentWillMount() {
+    this.client  = this.mqtt.connect('mqtt://' + this.brokerServer);
+
+    this.client.on('connect', function() {
+      console.log('Connected to broker');
     });
+  }
+
+  componentWillUnmount() {
   }
 
   handleInputChange(event) {
@@ -49,25 +41,23 @@ export class Home extends Page {
     const switchName = target.name;
 
     var relayNumber = switchName.match(/\d+/)[0];
-    this.driveRelay(relayNumber - 1, value, switchName);
+    this.driveRelay(relayNumber, value, switchName);
   }
 
   driveRelay(relayNumber, value, switchName) {
     try {
-      var relay = this.relays[relayNumber];
-      if (!relay) {
-        return false;
-      }
-
-      if (relay.readSync() === this.HIGH && value === true) {
-	// Turn it on
-        relay.writeSync(this.LOW);
-      } else {
-	// Turn it off
-        relay.writeSync(this.HIGH);
-      }
 
       console.log(switchName + ': ' + value);
+      var topic = 'driveRelay';
+      var message = (value === true ? 'turnOn' : 'turnOff') + '-' + relayNumber;
+
+      this.client.publish(topic, message, { qos: 1 }, error => {
+	if (error) {
+          console.log(error);
+        } else {
+          console.log('Sent - ' + topic + ': ' + message);
+        }
+      });
 
       this.setState({
         [switchName]: value
