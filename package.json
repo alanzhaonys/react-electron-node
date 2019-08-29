@@ -50,7 +50,7 @@
     ]
   },
   "dependencies": {
-    "alanzhao-react-scripts": "3.0.2",
+    "alanzhao-react-scripts": "3.1.1",
     "bootstrap": "^4.3.1",
     "mqtt": "^3.0.0",
     "react": "^16.8.6",
