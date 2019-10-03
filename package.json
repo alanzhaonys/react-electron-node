@@ -50,7 +50,7 @@
     ]
   },
   "dependencies": {
-    "alanzhao-react-scripts": "3.1.1",
+    "alanzhao-react-scripts": "3.2.1",
     "bootstrap": "^4.3.1",
     "react": "^16.10.1",
     "react-bootstrap": "^1.0.0-beta.12",
