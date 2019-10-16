@@ -20,6 +20,9 @@ export class Header extends Page {
           <li>
             <NavLink to="/documentation" activeClassName="selected">Documentation</NavLink>
           </li>
+          <li>
+            <NavLink to="/aws" activeClassName="selected">AWS</NavLink>
+          </li>
         </ul>
       </header>
     );

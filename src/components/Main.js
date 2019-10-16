@@ -11,6 +11,7 @@ import { Home } from './Home';
 import { News } from './News';
 import { Guidelines } from './Guidelines';
 import { Documentation } from './Documentation';
+import { AWS } from './AWS';
 
 export class Main extends Page {
   render() {
@@ -24,6 +25,7 @@ export class Main extends Page {
                 <Route path="/news" component={News} />
                 <Route path="/guidelines" component={Guidelines} />
                 <Route path="/documentation" component={Documentation} />
+                <Route path="/aws" component={AWS} />
               </Col>
             </Row>
           </Container>
