@@ -26,6 +26,10 @@ class App extends Page {
       AWS.config.accessKeyId = awsConfig.accessKeyId;
       AWS.config.secretAccessKey = awsConfig.secretAccessKey;
       AWS.config.region = awsConfig.region;
+      AWS.config.apiVersions = {
+        organizations: '2016-11-28',
+        ec2: '2016-11-15',
+      }
     })();
   }
 

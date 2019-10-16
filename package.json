@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "alanzhao-react-scripts": "3.2.1",
+    "aws-sdk": "^2.551.0",
     "bootstrap": "^4.3.1",
     "load-json-file": "^6.2.0",
     "react": "^16.10.1",
