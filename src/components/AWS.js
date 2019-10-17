@@ -32,6 +32,19 @@ export class AWSPage extends Page {
       }
 
       // Organizations
+      /* Policy
+       {
+   "Version": "2012-10-17",
+   "Statement": [{
+      "Effect": "Allow",
+      "Action": [
+         "organizations:ListAccounts",
+         "organizations:DescribeAccount"
+      ],
+      "Resource": "*"
+   }
+   ]
+}*/
       var organizations = new Organizations();
       var organizationsParams = {};
 
@@ -69,6 +82,15 @@ export class AWSPage extends Page {
         Metrics: [
           'UsageQuantity',
           'NetAmortizedCost',
+        ],
+        GroupBy: [{
+            Type: 'DIMENSION',
+            Key: 'SERVICE'
+          },
+          {
+            Type: 'TAG',
+            Key: 'Environment'
+          }
         ]
       };
 
@@ -81,6 +103,22 @@ export class AWSPage extends Page {
       });
 
       // EC2
+      
+    /* Policy
+{
+   "Version": "2012-10-17",
+   "Statement": [{
+      "Effect": "Allow",
+      "Action": [
+         "ec2:DescribeInstances", "ec2:DescribeImages",
+         "ec2:DescribeTags", "ec2:DescribeSnapshots"
+      ],
+      "Resource": "*"
+   }
+   ]
+}
+    */
+      
       var ec2 = new EC2();
       var ec2Params = {};
       ec2.describeInstances(ec2Params, function(err, data) {
