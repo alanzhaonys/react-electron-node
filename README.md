@@ -23,7 +23,7 @@ Prerequisites
 To start development in Electron
 - Run `yarn dev`
 
-To start development in browser. This is not possible if you're use modules like `fs` and `mysql`
+To start development in browser. This is not possible if you're using modules like `fs` and `mysql`
 - Run `yarn start`
 
 To build
