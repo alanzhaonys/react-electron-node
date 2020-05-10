@@ -1,6 +1,6 @@
 {
   "name": "react-electron-node",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "private": false,
   "license": "MIT",
   "author": {
@@ -11,7 +11,7 @@
   "build": {
     "appId": "com.my-website.react-electron-node",
     "productName": "ReactElectronNode",
-    "copyright": "Copyright © 2019 ${author}",
+    "copyright": "Copyright © 2019-2020 ${author}",
     "mac": {
       "category": "public.app-category.utilities"
     },
@@ -50,9 +50,8 @@
     ]
   },
   "dependencies": {
-    "alanzhao-react-scripts": "3.1.1",
+    "alanzhao-react-scripts": "3.4.1",
     "bootstrap": "^4.3.1",
-    "mqtt": "^3.0.0",
     "react": "^16.10.1",
     "react-bootstrap": "^1.0.0-beta.12",
     "react-dom": "^16.10.1",
@@ -60,12 +59,12 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
-    "concurrently": "^4.1.2",
-    "cross-env": "^6.0.3",
-    "electron": "^6.0.11",
-    "electron-builder": "^21.2.0",
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
+    "electron": "^8.2.5",
+    "electron-builder": "^22.6.0",
     "node-sass": "^4.12.0",
     "typescript": "^3.6.3",
-    "wait-on": "^3.3.0"
+    "wait-on": "^4.0.2"
   }
 }
