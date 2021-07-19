@@ -19,8 +19,8 @@ react-scripts-electron-by-alanzhao 4.0.4 has cutomizations in `config/webpack.co
 
 - To publish react-scripts-electron-by-alanzhao to npm,
 checkout latest react-scripts in npm, find out the git head number,
-clone the react-scripts, checkout the git head and modify script
-go to packages/react-scripts/ directory and do `npm publish`
+clone the react-scripts, checkout the git head and modify script,
+finally go to packages/react-scripts/ directory and do `npm publish`
 ---
 
 How to use this project?
