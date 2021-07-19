@@ -9,6 +9,20 @@ Electron and React
 Customize create-react-app:
 - https://auth0.com/blog/how-to-configure-create-react-app/
 
+---
+Node v14 and react-scripts-electron-by-alanzhao 4.0.4 are required.
+
+react-scripts-electron-by-alanzhao 4.0.4 has cutomizations in `config/webpack.config.js` for node environment
+
+- Set `minimize: false`
+- Add `target: process.env.TARGET_ELECTRON ? 'electron-renderer' : 'web',` after the `node:` block
+
+- To publish react-scripts-electron-by-alanzhao to npm,
+checkout latest react-scripts in npm, find out the git head number,
+clone the react-scripts, checkout the git head and modify script
+go to packages/react-scripts/ directory and do `npm publish`
+---
+
 How to use this project?
 - Fork and clone
 - Edit app info in package.json
