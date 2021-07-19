@@ -52,3 +52,10 @@ To generate coverage report
 To package
 - Run `yarn package`
 
+Trouble shooting
+If you run into build error, try following:
+- Remove `yarn.lock` file
+- Remove `node_modules/` directory
+- Remove `build/` directory
+- Run `yarn build`
+- Run `yarn install`
