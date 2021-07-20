@@ -12,39 +12,9 @@ import { News } from "./News";
 import { Guidelines } from "./Guidelines";
 import { Documentation } from "./Documentation";
 
-// Main database class
-const Database = require("alanzhao-mysql-orm-async/Database");
-
-// Parse your enviornment variables saved in .env file
-const envConfigsResult = require("dotenv").config();
-if (envConfigsResult.error) {
-  throw envConfigsResult.error;
-}
-const envConfigs = envConfigsResult.parsed;
-
 export class Main extends Page {
-  constructor() {
-    super();
-  }
-
-  componentDidMount() {
-    // Construct database envConfigs
-    const dbConfigs = {
-      dbHost: envConfigs.DB_ENDPOINT,
-      dbUser: envConfigs.DB_USER,
-      dbPassword: envConfigs.DB_PASSWORD,
-      dbName: envConfigs.DB_NAME,
-      dbPort: envConfigs.DB_PORT,
-      dbConnectTimeout: envConfigs.DB_CONNECT_TIMEOUT
-    };
-
-    //console.log(dbConfigs);
-
-    // Instantiate database
-    const database = new Database(dbConfigs);
-
-    // Connect to database
-    database.connect();
+  constructor(props) {
+    super(props);
   }
 
   render() {

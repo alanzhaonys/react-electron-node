@@ -59,3 +59,6 @@ If you run into build error, try following:
 - Remove `build/` directory
 - Run `yarn build`
 - Run `yarn install`
+
+Package
+https://www.electron.build/configuration/mac

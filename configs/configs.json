@@ -1,0 +1,10 @@
+{
+  "database": {
+    "dbHost": "127.0.0.1",
+    "dbUser": "root",
+    "dbName": "test",
+    "dbPassword": "YumDeesNo10",
+    "dbPort": 3306,
+    "dbConnectTimeout": 10000
+  }
+}
